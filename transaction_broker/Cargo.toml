@@ -1,0 +1,30 @@
+[package]
+name = "transaction_broker"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+account = {path = "../account", features = ["serde"]}
+# TODO: attributes are jusst for tests. should be dev dependecy
+async-std = {version = "1.12.0", features = ["attributes", "unstable"]}
+# TODO: can i remove futures and use just async std?
+futures = "0.3.24"
+csv-async = "1.2.4"
+csv = "1.1.6"
+
+# optional dependencies
+tracing = {version = "0.1.37", optional = true}
+
+[features]
+tracing = ["dep:tracing"]
+test-assets = []
+
+[[bench]]
+name = "mod"
+harness = false
+
+[dev-dependencies]
+criterion = {version = "0.4", features = ["html_reports", "async_std"]}
+pprof = {version = "0.11.0", features = ["criterion", "flamegraph"]}

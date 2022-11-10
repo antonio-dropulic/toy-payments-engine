@@ -1,0 +1,21 @@
+[package]
+name = "account"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+tracing = ["dep:tracing"]
+serde = ["dep:serde"]
+
+[dependencies]
+rust_decimal = "1.26"
+thiserror = "1.0.34"
+derive_more = "0.99.17"
+
+#optional dependencies
+tracing = {version = "0.1.37", optional = true}
+serde = {version = "1.0.147", features = ["derive"], optional = true}
+
+[dev-dependencies]
+test-case = "2.2.1"
+criterion = {version = "0.4", features = ["html_reports"]}

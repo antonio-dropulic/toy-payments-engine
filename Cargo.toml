@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "account",
+    "transaction_broker",
+    "csv_broker",
+    "test_utils",
+]
